@@ -23,10 +23,10 @@ export default {
   components: {TodoItem, AddTodo},
   setup(){
     const todos = ref([
-      {id: uuidv4(), name: "viec 1", complete: false},
-      {id: uuidv4(), name: "viec 2", complete: false},
-      {id: uuidv4(), name: "viec 3", complete: false},
-      {id: uuidv4(), name: "viec 4", complete: false},
+      {id: uuidv4(), name: "playing game", complete: false},
+      {id: uuidv4(), name: "listen to music", complete: false},
+      {id: uuidv4(), name: "reading book", complete: false},
+      {id: uuidv4(), name: "go to the market", complete: false},
     ])
 
     const markComplete = (id) => {

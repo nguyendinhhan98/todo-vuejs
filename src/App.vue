@@ -1,5 +1,5 @@
 <template>
-  <div id=app>
+  <div class="container-sm mt-3">
     <Header />
     <Todo />
   </div>
@@ -15,7 +15,5 @@ export default {
 </script>
 
 <style>
-  #app{
-    font-family: Arial, Helvetica, sans-serif;
-  }
+
 </style>

@@ -1,15 +1,25 @@
 <template>
   <div class="add">
     <form
-    @submit="addItem"
+      @submit="addItem"
+      @keyup.enter="submit"
+      class="row"
     >
-      <input
-      type="text"
-      v-model="dataAdd"
-      />
-      <button
-      @click="addTodo"
-      >Add</button>
+      <div class="col-sm-10">
+        <input
+        class="form-control"
+        placeholder="Enter something..."
+        type="text"
+        v-model="dataAdd"
+        />
+      </div>
+      <div class="col-sm-2">
+        <button
+          class="btn btn-primary"
+        >
+        Add
+        </button>
+      </div>
     </form>
   </div>
 </template>
@@ -42,17 +52,5 @@ export default {
 </script>
 
 <style>
-  .add{
-    text-align: center;
-  }
 
-  .add > input {
-    width: 200px;
-    height: 20px;
-    margin-right: 10px;
-  }
-
-  .add > button {
-    height: 26px;
-  }
 </style>

@@ -1,18 +1,21 @@
 <template>
-<div>
-  <p :class="todoProps.complete ? 'isComplete' : '' ">
-    <input
-    type="checkbox"
-    :checked="todoProps.complete"
-    @change="checkStatus"
-    >
-    {{todoProps.name}}
-    <button
-    class="delete"
-    @click="deleteItem"
-    >Delete</button>
-  </p>
-</div>
+  <div :class="[todoProps.complete ? 'isComplete' : '', 'row mt-3' ]">
+    <div class="col-sm-6">
+      <input
+        type="checkbox"
+        :checked="todoProps.complete"
+        @change="checkStatus"
+      >
+      {{todoProps.name}}
+    </div>
+    <div class="col-sm-6">
+      <button
+        @click="deleteItem"
+      >
+      Delete
+      </button>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -37,12 +40,6 @@ export default {
 </script>
 
 <style>
-  /* .todoItem {
-    background-color: bisque;
-  } */
-  .delete{
-    float: right;
-  }
   .isComplete{
     text-decoration: line-through;
   }
