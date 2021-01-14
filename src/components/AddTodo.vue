@@ -1,7 +1,7 @@
 <template>
   <div class="add">
     <form
-      @submit="addItem"
+      @submit.prevent="addItem"
       @keyup.enter="submit"
       class="row"
     >
@@ -32,8 +32,8 @@ export default {
   setup(props, context) {
 
     const dataAdd = ref('');
-    const addItem = (event) => {
-      event.preventDefault()
+    const addItem = () => {
+      // event.preventDefault()
       const newItem = {
         id: uuidv4(),
         name: dataAdd.value,

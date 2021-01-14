@@ -1,5 +1,6 @@
 <template>
 <div>
+  <Header />
   <AddTodo
   @add-item="addItem"
   />
@@ -9,6 +10,7 @@
     :todoProps="todo"
     @item-complete="markComplete"
     @delete-item="deleteItem"
+    @edit-item="editItem"
   />
 </div>
 </template>
@@ -18,9 +20,15 @@ import { ref } from 'vue'
 import { v4 as uuidv4} from 'uuid'
 import TodoItem from './TodoItem'
 import AddTodo from "./AddTodo"
+import Header from "./Header"
 export default {
   name: "Todo",
-  components: {TodoItem, AddTodo},
+  components: {TodoItem, AddTodo, Header},
+  data(){
+    return {
+      toggle : true
+    }
+  },
   setup(){
     const todos = ref([
       {id: uuidv4(), name: "playing game", complete: false},
@@ -47,11 +55,16 @@ export default {
       })
     }
 
+    // const editItem = (id) => {
+
+    // }
+
     return{
       todos,
       markComplete,
       deleteItem,
-      addItem
+      addItem,
+      // editItem
     }
   }
 }

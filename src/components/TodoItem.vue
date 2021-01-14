@@ -5,23 +5,30 @@
         type="checkbox"
         :checked="todoProps.complete"
         @change="checkStatus"
-      >
-      {{todoProps.name}}
+        :value="value"
+      />
+        {{todoProps.name}}
+        <!-- <input type="text" :value="todoProps.name" style="{border: isBorder}" :disabled="isDisabled">
+        <button >Save</button> -->
     </div>
     <div class="col-sm-6">
-      <button
+      <!-- <EditItem
+        @click="editItem"
+      /> -->
+      <DeleteItem
         @click="deleteItem"
-      >
-      Delete
-      </button>
+      />
     </div>
   </div>
 </template>
 
 <script>
+import DeleteItem from "./DeleteItem"
+// import EditItem from "./EditItem"
 export default {
   name: "TodoItem",
   props:['todoProps'],
+  components: {DeleteItem},
   setup(props, context) {
     const checkStatus = () => {
       context.emit('item-complete', props.todoProps.id)
@@ -33,7 +40,7 @@ export default {
 
     return{
       checkStatus,
-      deleteItem
+      deleteItem,
     }
   }
 }
